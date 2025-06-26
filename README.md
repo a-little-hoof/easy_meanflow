@@ -1,11 +1,39 @@
-# torch_meanflow
-A clean Pytorch Implementation of Mean Flow, with FID evaluation on the fly
+# Torch MeanFlow 🌊
 
-Core Contributor: Weijian Luo, and Yifei Wang. 
+*A clean PyTorch implementation of Mean Flow with on-the-fly FID evaluation*
 
-Call for feedback: If you have any feedback and suggestions when running the training code, please get in touch with pkulwj1994@icloud.com or yw251@rice.edu.
+---
 
+## 🚀 Features
+- 🧹 **Clean implementation** - Well-structured PyTorch codebase
+- 📊 **Real-time FID** - Evaluation during training
+- ⚡ **Optimized** - Multi-GPU training support
+- 📝 **Documented** - Comprehensive docstrings and comments
 
+## 👨‍💻 Core Contributors
+| Researcher | Affiliation | Contact |
+|------------|-------------|---------|
+| **Weijian Luo** | Peking University | [📧](mailto:pkulwj1994@icloud.com) |
+| **Yifei Wang** | Rice University | [📧](mailto:yw251@rice.edu) |
+
+---
+
+## 💌 Call for Feedback
+We welcome your input! Please reach out if you:
+- Find any issues running the code
+- Have suggestions for improvements
+- Want to collaborate on extensions
+
+[![Email](https://img.shields.io/badge/Contact_Weijian-Email-blue?style=flat&logo=mail.ru)](mailto:pkulwj1994@icloud.com)
+[![Email](https://img.shields.io/badge/Contact_Yifei-Email-green?style=flat&logo=protonmail)](mailto:yw251@rice.edu)
+
+---
+
+## 🛠️ Installation
+```bash
+git clone https://github.com/yourusername/torch_meanflow.git
+cd torch_meanflow
+pip install -e .
 
 <<<<<<< HEAD
 ## 
