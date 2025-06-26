@@ -7,6 +7,7 @@ Call for feedback: If you have any feedback and suggestions when running the tra
 
 
 
+<<<<<<< HEAD
 ## 
 
 ## Requirements
@@ -224,3 +225,6 @@ All material, including source code and pre-trained models, is licensed under th
 
 `imagenet-64x64-baseline.npz` is derived from the [precomputed reference statistics](https://github.com/openai/guided-diffusion/tree/main/evaluations) by Prafulla Dhariwal and Alex Nichol. The statistics were
 originally shared under the [MIT license](https://github.com/openai/guided-diffusion/blob/main/LICENSE).
+=======
+wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
+>>>>>>> refs/remotes/origin/main
