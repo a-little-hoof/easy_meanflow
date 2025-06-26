@@ -13,7 +13,7 @@
 ## 👨‍💻 Core Contributors
 | Researcher | Affiliation | Contact |
 |------------|-------------|---------|
-| **Weijian Luo** | Peking University | [📧](mailto:pkulwj1994@icloud.com) |
+| **Weijian Luo** | Humane Inellegence (hi) Lab, Xiaohongshu Inc && Peking University | [📧](mailto:pkulwj1994@icloud.com) |
 | **Yifei Wang** | Rice University | [📧](mailto:yw251@rice.edu) |
 
 ---
