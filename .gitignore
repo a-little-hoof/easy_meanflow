@@ -1,0 +1,142 @@
+### Python ###
+# Byte-compiled / optimized / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environments
+# 包括所有常见虚拟环境目录命名模式
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv.bak/
+pyvenv.cfg
+
+# IDE相关文件
+# JetBrains (PyCharm, IntelliJ等)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~
+~$*
+
+### 构建产物 ###
+# Setuptools/distutils
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.spec
+*.manifest
+*.app
+
+# Cython编译文件
+*.so
+*.c
+
+### 测试相关 ###
+# 单元测试输出
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+### 日志和数据库 ###
+# 本地开发数据库
+*.sqlite3
+*.db
+*.db-journal
+
+# 日志文件
+*.log
+*.log.*
+log/
+
+### Jupyter ###
+# Jupyter Notebook检查点
+.ipynb_checkpoints/
+
+### 环境变量 ###
+# 本地环境文件
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+### 其他 ###
+# macOS系统文件
+.DS_Store
+
+# Windows系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 本地开发配置
+.settings/
+.project
+.pydevproject
+
+# 包管理器配置
+pip-selfcheck.json
+Pipfile.lock
+poetry.lock
+
+# 其他临时文件
+*.bak
+*.tmp
+*.temp
+*.pid
+*.pid.lock
+
+# 文档生成
+docs/_build/
+
+# model
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.pth.tar
+*.pth.tar.gz
+
+logs/
+out_metrics/
+image_experiments/
+
+data/
