@@ -6,21 +6,22 @@ Core Contributor: Weijian Luo, and Yifei Wang.
 Call for feedback: If you have any feedback and suggestions when running the training code, please get in touch with pkulwj1994@icloud.com or yw251@rice.edu.
 
 
+## Environment Setup
 
-<<<<<<< HEAD
-## 
+```
+conda env create -f environment.yml
+conda activate easy_meanflow
+```
 
-## Requirements
+## Preparing datasets
 
-* Linux and Windows are supported, but we recommend Linux for performance and compatibility reasons.
-* 1+ high-end NVIDIA GPU for sampling and 8+ GPUs for training. We have done all testing and development using V100 and A100 GPUs.
-* 64-bit Python 3.8 and PyTorch 1.12.0 (or later). See https://pytorch.org for PyTorch install instructions.
-* Python libraries: See [environment.yml](./environment.yml) for exact library dependencies. You can use the following commands with Miniconda3 to create and activate your Python environment:
-  - `conda env create -f environment.yml -n edm`
-  - `conda activate edm`
-* Docker users:
-  - Ensure you have correctly installed the [NVIDIA container runtime](https://docs.docker.com/config/containers/resource_constraints/#gpu).
-  - Use the [provided Dockerfile](./Dockerfile) to build an image with the required library dependencies.
+We prepared our dataset following the instructions in [StyleGAN](https://github.com/NVlabs/stylegan3).
+
+CIFAR10 dataset can be downloaded through
+```
+wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
+```
+
 
 ## Getting started
 
@@ -147,41 +148,6 @@ You can compute the reference statistics for your own datasets as follows:
 python fid.py ref --data=datasets/my-dataset.zip --dest=fid-refs/my-dataset.npz
 ```
 
-## Preparing datasets
-
-Datasets are stored in the same format as in [StyleGAN](https://github.com/NVlabs/stylegan3): uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels. Custom datasets can be created from a folder containing images; see [`python dataset_tool.py --help`](./docs/dataset-tool-help.txt) for more information.
-
-**CIFAR-10:** Download the [CIFAR-10 python version](https://www.cs.toronto.edu/~kriz/cifar.html) and convert to ZIP archive:
-
-```.bash
-python dataset_tool.py --source=downloads/cifar10/cifar-10-python.tar.gz \
-    --dest=datasets/cifar10-32x32.zip
-python fid.py ref --data=datasets/cifar10-32x32.zip --dest=fid-refs/cifar10-32x32.npz
-```
-
-**FFHQ:** Download the [Flickr-Faces-HQ dataset](https://github.com/NVlabs/ffhq-dataset) as 1024x1024 images and convert to ZIP archive at 64x64 resolution:
-
-```.bash
-python dataset_tool.py --source=downloads/ffhq/images1024x1024 \
-    --dest=datasets/ffhq-64x64.zip --resolution=64x64
-python fid.py ref --data=datasets/ffhq-64x64.zip --dest=fid-refs/ffhq-64x64.npz
-```
-
-**AFHQv2:** Download the updated [Animal Faces-HQ dataset](https://github.com/clovaai/stargan-v2/blob/master/README.md#animal-faces-hq-dataset-afhq) (`afhq-v2-dataset`) and convert to ZIP archive at 64x64 resolution:
-
-```.bash
-python dataset_tool.py --source=downloads/afhqv2 \
-    --dest=datasets/afhqv2-64x64.zip --resolution=64x64
-python fid.py ref --data=datasets/afhqv2-64x64.zip --dest=fid-refs/afhqv2-64x64.npz
-```
-
-**ImageNet:** Download the [ImageNet Object Localization Challenge](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data) and convert to ZIP archive at 64x64 resolution:
-
-```.bash
-python dataset_tool.py --source=downloads/imagenet/ILSVRC/Data/CLS-LOC/train \
-    --dest=datasets/imagenet-64x64.zip --resolution=64x64 --transform=center-crop
-python fid.py ref --data=datasets/imagenet-64x64.zip --dest=fid-refs/imagenet-64x64.npz
-```
 
 ## Training new models
 
@@ -212,19 +178,3 @@ The following table lists the exact training configurations that we used to obta
 | <sub>imagenet&#8209;64x64&#8209;cond&#8209;adm</sub> | <sub>32xA100</sub> | <sub>~13&nbsp;days</sub> | <sub>`--cond=1 --arch=adm --duration=2500 --batch=4096 --lr=1e-4 --ema=50 --dropout=0.10 --augment=0 --fp16=1 --ls=100 --tick=200`</sub>
 
 For ImageNet-64, we ran the training on four NVIDIA DGX A100 nodes, each containing 8 Ampere GPUs with 80 GB of memory. To reduce the GPU memory requirements, we recommend either training the model with more GPUs or limiting the per-GPU batch size with `--batch-gpu`. To set up multi-node training, please consult the [torchrun documentation](https://pytorch.org/docs/stable/elastic/run.html).
-
-## License
-
-Copyright &copy; 2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-
-All material, including source code and pre-trained models, is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-`baseline-cifar10-32x32-uncond-vp.pkl` and `baseline-cifar10-32x32-uncond-ve.pkl` are derived from the [pre-trained models](https://github.com/yang-song/score_sde_pytorch) by Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. The models were originally shared under the [Apache 2.0 license](https://github.com/yang-song/score_sde_pytorch/blob/main/LICENSE).
-
-`baseline-imagenet-64x64-cond-adm.pkl` is derived from the [pre-trained model](https://github.com/openai/guided-diffusion) by Prafulla Dhariwal and Alex Nichol. The model was originally shared under the [MIT license](https://github.com/openai/guided-diffusion/blob/main/LICENSE).
-
-`imagenet-64x64-baseline.npz` is derived from the [precomputed reference statistics](https://github.com/openai/guided-diffusion/tree/main/evaluations) by Prafulla Dhariwal and Alex Nichol. The statistics were
-originally shared under the [MIT license](https://github.com/openai/guided-diffusion/blob/main/LICENSE).
-=======
-wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
->>>>>>> refs/remotes/origin/main
