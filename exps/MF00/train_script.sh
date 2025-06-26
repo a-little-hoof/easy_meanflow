@@ -9,5 +9,5 @@ torchrun --standalone \
 easy_meanflow/train_mf.py \
 --detach_tgt=1 \
 --outdir=logs/mf/MF00 \
---data=/data/cifar10-32x32.zip \
+--data=cifar10-32x32.zip \
 --cond=0 --arch=ddpmpp --lr 10e-4 --batch 256
