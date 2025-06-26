@@ -4,10 +4,10 @@ export HF_HOME=/cpfs/user/weijian/cache && \
 export TORCH_NCCL_IB_TIMEOUT=23 && \
 export NCCL_TIMEOUT=3600 && \
 export SETUPTOOLS_USE_DISTUTILS=local && \
-/cpfs/user/weijian/thirdparty/miniconda3/envs/sidlsg/bin/torchrun --standalone \
+torchrun --standalone \
 --nproc_per_node=8 \
-/newcpfs/user/deke/code/edm_meanflow_new/train_mf.py \
+easy_meanflow/train_mf.py \
 --detach_tgt=1 \
---outdir=/newcpfs/user/deke/logs/mf/MF03 \
---data=/cpfs/user/weijian/data/cifar10-32x32.zip \
+--outdir=logs/mf/MF00 \
+--data=/data/cifar10-32x32.zip \
 --cond=0 --arch=ddpmpp --lr 10e-4 --batch 256
