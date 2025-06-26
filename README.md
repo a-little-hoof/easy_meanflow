@@ -16,7 +16,6 @@
 | **Weijian Luo** | Humane Inellegence (hi) Lab, Xiaohongshu Inc && Peking University | [📧](mailto:pkulwj1994@icloud.com) |
 | **Yifei Wang** | Rice University | [📧](mailto:yw251@rice.edu) |
 
----
 
 ## 💌 Call for Feedback
 We welcome your input! Please reach out if you:
@@ -27,7 +26,6 @@ We welcome your input! Please reach out if you:
 [![Email](https://img.shields.io/badge/Contact_Weijian-Email-blue?style=flat&logo=mail.ru)](mailto:pkulwj1994@icloud.com)
 [![Email](https://img.shields.io/badge/Contact_Yifei-Email-green?style=flat&logo=protonmail)](mailto:yw251@rice.edu)
 
----
 
 
 ## Environment Setup
@@ -60,30 +58,7 @@ FID score is computed on the fly.
 
 ## Calculating FID
 
-To compute Fr&eacute;chet inception distance (FID) for a given model and sampler, first generate 50,000 random images and then compare them against the dataset reference statistics using `fid.py`:
-
-```.bash
-# Generate 50000 images and save them as fid-tmp/*/*.png
-torchrun --standalone --nproc_per_node=1 generate.py --outdir=fid-tmp --seeds=0-49999 --subdirs \
-    --network=https://nvlabs-fi-cdn.nvidia.com/edm/pretrained/edm-cifar10-32x32-cond-vp.pkl
-
-# Calculate FID
-torchrun --standalone --nproc_per_node=1 fid.py calc --images=fid-tmp \
-    --ref=https://nvlabs-fi-cdn.nvidia.com/edm/fid-refs/cifar10-32x32.npz
+We also provide scripts for computing Fr&eacute;chet inception distance (FID), simply run:
 ```
-
-Both of the above commands can be parallelized across multiple GPUs by adjusting `--nproc_per_node`. The second command typically takes 1-3 minutes in practice, but the first one can sometimes take several hours, depending on the configuration. See [`python fid.py --help`](./docs/fid-help.txt) for the full list of options.
-
-Note that the numerical value of FID varies across different random seeds and is highly sensitive to the number of images. By default, `fid.py` will always use 50,000 generated images; providing fewer images will result in an error, whereas providing more will use a random subset. To reduce the effect of random variation, we recommend repeating the calculation multiple times with different seeds, e.g., `--seeds=0-49999`, `--seeds=50000-99999`, and `--seeds=100000-149999`. In our paper, we calculated each FID three times and reported the minimum.
-
-Also note that it is important to compare the generated images against the same dataset that the model was originally trained with. To facilitate evaluation, we provide the exact reference statistics that correspond to our pre-trained models:
-
-* [https://nvlabs-fi-cdn.nvidia.com/edm/fid-refs/](https://nvlabs-fi-cdn.nvidia.com/edm/fid-refs/)
-
-For ImageNet, we provide two sets of reference statistics to enable apples-to-apples comparison: `imagenet-64x64.npz` should be used when evaluating the EDM model (`edm-imagenet-64x64-cond-adm.pkl`), whereas `imagenet-64x64-baseline.npz` should be used when evaluating the baseline model (`baseline-imagenet-64x64-cond-adm.pkl`); the latter was originally trained by Dhariwal and Nichol using slightly different training data.
-
-You can compute the reference statistics for your own datasets as follows:
-
-```.bash
-python fid.py ref --data=datasets/my-dataset.zip --dest=fid-refs/my-dataset.npz
+sh cal_fid.sh
 ```
