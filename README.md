@@ -48,8 +48,13 @@ To calculate FID score, you will also need to compare the generated images again
 
 
 ## Getting started
+A good way to start is to play with our [jupyter notebook](https://github.com/pkulwj1994/easy_meanflow/blob/main/1step_mnist_mf.ipynb). We will walk you through the details of mean flow and train a toy model on MNIST. To set up ipynb kernel, run:
+```
+pip install ipykernel
+python -m ipykernel install --user --name easy_meanflow
+```
 
-To train a meanflow model, simply run:
+After that, if you want to train a meanflow model on CIFAR10, simply run:
 
 ```
 sh ./exps/MF00/train_script.sh
