@@ -7,4 +7,4 @@ Call for feedback: If you have any feedback and suggestions when running the tra
 
 ## Preparing Datasets
 
-## 
+wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
