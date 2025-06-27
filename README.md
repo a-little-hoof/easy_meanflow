@@ -68,3 +68,8 @@ We also provide scripts for computing Fr&eacute;chet inception distance (FID), s
 ```
 sh cal_fid.sh
 ```
+
+## Acknowledgements
+We extend our gratitude to the authors of the EDM paper for sharing their code, which served as the foundational framework for developing this repository. The repository can be found here: [NVlabs/edm](https://github.com/NVlabs/edm/).
+
+Additionally, we are thankful to the authors of the Diff Instruct paper for making their code available. Their repository is accessible here: [pkulwj1994/diff_instruct](https://github.com/pkulwj1994/diff_instruct).
