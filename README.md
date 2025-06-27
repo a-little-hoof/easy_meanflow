@@ -9,6 +9,7 @@
 - 📊 **Real-time FID** - Evaluation during training
 - ⚡ **Optimized** - Multi-GPU training support
 - 📝 **Documented** - Comprehensive docstrings and comments
+- 🧠 **Detailed explanation** - A Jupyter notebook that walks you through every detail in Mean Flows.
 
 ## 👨‍💻 Core Contributors
 | Researcher | Affiliation | Contact |
