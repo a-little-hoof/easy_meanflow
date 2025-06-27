@@ -1,6 +1,6 @@
 # Torch MeanFlow 🌊
 
-*A clean PyTorch implementation of Mean Flow with on-the-fly FID evaluation*
+*A clean PyTorch implementation of the paper "Mean Flows for One-step Generative Modeling" by Geng et al, with on-the-fly FID evaluation.*
 
 ---
 
