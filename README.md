@@ -47,7 +47,7 @@ cd easy_meanflow
 
 We prepared our dataset following the instructions in [StyleGAN](https://github.com/NVlabs/stylegan3).
 
-CIFAR10 dataset can be downloaded through
+CIFAR10 dataset can be simply downloaded through
 ```
 wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
 ```
