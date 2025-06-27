@@ -4,6 +4,8 @@
 
 Our goal is to provide a straightforward and clean **PyTorch implementation** of Mean Flow models for CIFAR-10 and MNIST, such that researchers can conduct experiments with minimal costs.
 
+A good way to start is to play with our [Colab notebook](https://colab.research.google.com/drive/1dQR09kiFx4yvUO6ENvC5S1K16-oQ6DZc?usp=sharing). We will walk you through the details of mean flow and train a toy model on MNIST.
+
 ---
 
 ## 🚀 Features
