@@ -2,6 +2,8 @@
 
 *A clean PyTorch implementation of the paper "Mean Flows for One-step Generative Modeling" by Geng et al, with on-the-fly FID evaluation.*
 
+This project aims to provide a straightforward and clean **PyTorch implementation** of Mean Flow models for CIFAR-10 and MNIST.
+
 ---
 
 ## 🚀 Features
@@ -70,6 +72,6 @@ sh cal_fid.sh
 ```
 
 ## Acknowledgements
-We extend our gratitude to the authors of the EDM paper for sharing their code, which served as the foundational framework for developing this repository. The repository can be found here: [NVlabs/edm](https://github.com/NVlabs/edm/).
+We are thankful to the authors of the [meanflow]([https://github.com/Gsunshine/meanflow](https://arxiv.org/abs/2505.13447)), as well as their [Jax implementation](https://github.com/Gsunshine/meanflow).
 
-Additionally, we are thankful to the authors of the Diff Instruct paper for making their code available. Their repository is accessible here: [pkulwj1994/diff_instruct](https://github.com/pkulwj1994/diff_instruct).
+We extend our gratitude to the authors of the EDM paper for sharing their code, which served as the foundational framework for developing this repository. The repository can be found here: [NVlabs/edm](https://github.com/NVlabs/edm/). We also refer to some basic logics of the Diff-Instruct repo [pkulwj1994/diff_instruct](https://github.com/pkulwj1994/diff_instruct).
