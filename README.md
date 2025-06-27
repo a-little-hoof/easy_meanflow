@@ -69,6 +69,9 @@ We also provide scripts for computing Fr&eacute;chet inception distance (FID), s
 sh cal_fid.sh
 ```
 
+## Results on CIFAR10
+![CIFAR](./assets/fakes_097843.png)
+
 ## Acknowledgements
 We are thankful to the authors of the [meanflow](https://arxiv.org/abs/2505.13447), as well as their [Jax implementation](https://github.com/Gsunshine/meanflow).
 
