@@ -71,6 +71,7 @@ sh cal_fid.sh
 
 ## Results on CIFAR10
 ![CIFAR](./assets/fakes_097843.png)
+![fid](./assets/FID.png)
 
 ## Acknowledgements
 We are thankful to the authors of the [meanflow](https://arxiv.org/abs/2505.13447), as well as their [Jax implementation](https://github.com/Gsunshine/meanflow).
