@@ -1,4 +1,4 @@
-# Torch MeanFlow 🌊
+# Easy MeanFlow (Pytorch) 🌊
 
 *A clean PyTorch implementation of the paper ["Mean Flows for One-step Generative Modeling"](https://arxiv.org/abs/2505.13447) by Geng et al, with on-the-fly FID evaluation.*
 
