@@ -1,4 +1,4 @@
-# Torch MeanFlow 🌊
+# Easy MeanFlow (Pytorch) 🌊
 
 *A clean PyTorch implementation of the paper ["Mean Flows for One-step Generative Modeling"](https://arxiv.org/abs/2505.13447) by Geng et al, with on-the-fly FID evaluation.*
 
@@ -38,13 +38,16 @@ We welcome your input! Please reach out if you:
 ```
 conda env create -f environment.yml
 conda activate easy_meanflow
+
+git clone https://github.com/pkulwj1994/easy_meanflow.git
+cd easy_meanflow
 ```
 
 ## Preparing datasets
 
 We prepared our dataset following the instructions in [StyleGAN](https://github.com/NVlabs/stylegan3).
 
-CIFAR10 dataset can be downloaded through
+CIFAR10 dataset can be simply downloaded through
 ```
 wget https://huggingface.co/datasets/william94/useful_public_data/resolve/main/cifar10-32x32.zip
 ```
@@ -60,6 +63,21 @@ After that, if you want to train a meanflow model on CIFAR10, simply run:
 ```
 sh ./exps/MF00/train_script.sh
 ```
+or directly run
+
+```
+export PYTORCH_ENABLE_FUNC_IMPL=1 && \
+export PYTORCH_DDP_NO_REBUILD_BUCKETS=1 && \
+export TORCH_NCCL_IB_TIMEOUT=23 && \
+export NCCL_TIMEOUT=3600 && \
+export SETUPTOOLS_USE_DISTUTILS=local && \
+torchrun --standalone --nproc_per_node=8 train_mf.py \
+    --detach_tgt=1 \
+    --outdir=logs/mf/MF00 \
+    --data=cifar10-32x32.zip \
+    --cond=0 --arch=ddpmpp --lr 10e-4 --batch 8
+```
+
 FID score is computed on the fly.
 
 ## Calculating FID
@@ -76,4 +94,4 @@ sh cal_fid.sh
 ## Acknowledgements
 We are thankful to the authors of the [meanflow](https://arxiv.org/abs/2505.13447), as well as their [Jax implementation](https://github.com/Gsunshine/meanflow).
 
-We extend our gratitude to the authors of the EDM paper for sharing their code, which served as the foundational framework for developing this repository. The repository can be found here: [NVlabs/edm](https://github.com/NVlabs/edm/). We also refer to some basic logics of the Diff-Instruct repo [pkulwj1994/diff_instruct](https://github.com/pkulwj1994/diff_instruct).
+We extend our gratitude to the authors of the EDM paper for sharing their code, which served as the foundational framework for developing this repository. The repository can be found here: [NVlabs/edm](https://github.com/NVlabs/edm/). We also refer to some basic logics of the Diff-Instruct repo [pkulwj1994/diff_instruct](https://github.com/pkulwj1994/diff_instruct). Additionally, we thank Deepseek for helping us resolve some DDP bugs.
