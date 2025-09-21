@@ -2,7 +2,7 @@
 #SBATCH --job-name=MF00
 #SBATCH --account=cw220
 #SBATCH --partition=commons
-#SBATCH --time=1-00:00:00    
+#SBATCH --time=2-00:00:00    
 #SBATCH --ntasks=1                # 任务数
 #SBATCH --cpus-per-task=8         # 每个任务分配 CPU 核数（可根据需要调整）
 #SBATCH --gres=gpu:h200:1              # 使用 4 张 GPU
